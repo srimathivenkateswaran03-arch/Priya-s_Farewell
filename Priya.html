@@ -16,21 +16,11 @@ body {
 }
 
 /* 🌸 SOFT GRADIENT BACKGROUNDS */
-.hero {
-  background: linear-gradient(to top, #a8edea, #fed6e3);
-}
-.memories {
-  background: linear-gradient(to top, #fbc2eb, #a6c1ee);
-}
-.learn {
-  background: linear-gradient(to top, #d4fc79, #96e6a1);
-}
-.gallery {
-  background: linear-gradient(to top, #fddb92, #d1fdff);
-}
-.end {
-  background: linear-gradient(to top, #ffecd2, #fcb69f);
-}
+.hero { background: linear-gradient(to top, #a8edea, #fed6e3); }
+.memories { background: linear-gradient(to top, #fbc2eb, #a6c1ee); }
+.learn { background: linear-gradient(to top, #d4fc79, #96e6a1); }
+.gallery { background: linear-gradient(to top, #fddb92, #d1fdff); }
+.end { background: linear-gradient(to top, #ffecd2, #fcb69f); }
 
 section {
   height: 100vh;
@@ -104,21 +94,23 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.85);
   display: none;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .popup img {
   max-width: 90%;
-  max-height: 90%;
+  max-height: 80%;
   width: auto;
   height: auto;
   border-radius: 15px;
   object-fit: contain;
 }
 
+/* Close button */
 .close {
   position: absolute;
   top: 20px;
@@ -128,6 +120,7 @@ button {
   cursor: pointer;
 }
 
+/* Titles */
 h1 {
   font-size: 3rem;
 }
@@ -170,7 +163,6 @@ setInterval(() => {
   </div>
 </section>
 
-
 <!-- 📸 GALLERY -->
 <section class="gallery">
   <h1>Our Special Moment 📸</h1>
@@ -187,7 +179,7 @@ setInterval(() => {
 <!-- 📸 POPUP -->
 <div class="popup" id="popup">
   <span class="close" onclick="closePopup()">✖</span>
- <img src="team.jpg">
+  <img src="team.jpg" alt="Team Photo">
 </div>
 
 <!-- 🔊 MUSIC -->
