@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Farewell Tribute</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #4e342e;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* 🌸 SOFT GRADIENT BACKGROUNDS */
+.hero {
+  background: linear-gradient(to top, #a8edea, #fed6e3);
+}
+.memories {
+  background: linear-gradient(to top, #fbc2eb, #a6c1ee);
+}
+.learn {
+  background: linear-gradient(to top, #d4fc79, #96e6a1);
+}
+.gallery {
+  background: linear-gradient(to top, #fddb92, #d1fdff);
+}
+.end {
+  background: linear-gradient(to top, #ffecd2, #fcb69f);
+}
+
+section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ❤️ Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -10px;
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+/* ✨ Typing */
+#typing::after {
+  content: '|';
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* 🧊 Cards */
+.card {
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  padding: 15px;
+  margin: 10px;
+  border-radius: 15px;
+  width: 250px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.08);
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* 🍫 Button */
+button {
+  padding: 10px 20px;
+  border: none;
+  background: #6d4c41;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* 📸 POPUP */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup img {
+  max-width: 90%;
+  max-height: 90%;
+  width: auto;
+  height: auto;
+  border-radius: 15px;
+  object-fit: contain;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+p {
+  font-size: 1.2rem;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ❤️ HEARTS -->
+<script>
+setInterval(() => {
+  let heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (10 + Math.random() * 20) + "px";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}, 300);
+</script>
+
+<!-- 🌿 HERO -->
+<section class="hero">
+  <h1 id="typing"></h1>
+  <p>Your presence was calm like nature 🌿</p>
+  <button onclick="scrollNext()">See Memories ↓</button>
+</section>
+
+<!-- 🍫 MEMORIES -->
+<section class="memories" id="memories">
+  <h1>Sweet Memories 🍫</h1>
+  <div class="container">
+    <div class="card">Late night validation 😄</div>
+    <div class="card">Your calm guidance 🌿</div>
+    <div class="card">Fun team vibes 😂</div>
+  </div>
+</section>
+
+
+<!-- 📸 GALLERY -->
+<section class="gallery">
+  <h1>Our Special Moment 📸</h1>
+  <button onclick="openPopup()">View Team ❤️</button>
+</section>
+
+<!-- ❤️ END -->
+<section class="end">
+  <h1>Thank You ❤️</h1>
+  <p>You’ll always be part of our memories 🌿🍫</p>
+  <p>All the best for your journey 🚀</p>
+</section>
+
+<!-- 📸 POPUP -->
+<div class="popup" id="popup">
+  <span class="close" onclick="closePopup()">✖</span>
+  <img src="C:\Users\s.r.venkateswaran\Downloads\shared image.jpg">
+</div>
+
+<!-- 🔊 MUSIC -->
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ✨ JS -->
+<script>
+let text = "Thank You, Priya ❤️";
+let i = 0;
+
+function type() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(type, 60);
+  }
+}
+type();
+
+function scrollNext() {
+  document.getElementById("memories").scrollIntoView({ behavior: 'smooth' });
+}
+
+function openPopup() {
+  document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+</script>
+
+</body>
+</html>
